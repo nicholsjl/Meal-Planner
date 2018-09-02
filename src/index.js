@@ -1,7 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import '../scss/style.scss';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Root from './Root';
+import App from './components/App';
+import { baseURL } from './routes';
+import '../scss/styles.scss';
 
-import Layout from './components/Layout';
-
-ReactDOM.render(<Layout />, document.getElementById('app'));
+ReactDOM.render(
+    <Root>
+        <BrowserRouter>
+            <Route path={baseURL} component={App} />
+        </BrowserRouter>
+    </Root>,
+    document.querySelector('#root')
+);
